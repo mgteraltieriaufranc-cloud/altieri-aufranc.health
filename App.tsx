@@ -1,212 +1,198 @@
-
 import React from 'react';
-import Navbar from './components/Navbar';
-import Section from './components/Section';
-import TrustZone from './components/TrustZone';
-import { PROFESSIONAL } from './constants';
 
 const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      {/* Zona de Confianza / Legal Banner */}
+      <div className="legal-banner border-b border-slate-800">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-1">
+          <span>MN N° 59502/15</span>
+          <span className="hidden md:inline text-slate-600">|</span>
+          <span>MP N° 217 y 113</span>
+          <span className="hidden md:inline text-slate-600">|</span>
+          <span className="text-blue-400">Seguro Mala Praxis: La Segunda N° 40.264.697</span>
+        </div>
+      </div>
 
-      <main className="flex-grow">
-        {/* Hero / Introduction */}
-        <header className="bg-gradient-to-br from-slate-50 to-blue-50 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-7 space-y-6">
-                <div>
-                  <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                    {PROFESSIONAL.name}
-                  </h1>
-                  <p className="mt-4 text-xl md:text-2xl text-slate-600 font-medium">
-                    {PROFESSIONAL.degrees.join(' y ')}
-                  </p>
-                </div>
-                
-                <div className="prose prose-slate max-w-none">
-                  <p className="text-slate-700 leading-relaxed text-lg">
-                    Sólida formación y experiencia en procesos terapéuticos integrativos.
-                    Orientado a la práctica profesional en salud mental basada en la ética, la transparencia institucional y el bienestar del paciente.
-                  </p>
-                </div>
+      {/* Navigation */}
+      <nav className="glass-nav">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="font-bold text-slate-900 tracking-tight text-lg">
+            Álvaro Altieri Aufranc
+          </div>
+          <div className="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+            <a href="#inicio" className="hover:text-blue-600 transition-colors">Inicio</a>
+            <a href="#perfil" className="hover:text-blue-600 transition-colors">Perfil</a>
+            <a href="#formacion" className="hover:text-blue-600 transition-colors">Formación</a>
+            <a href="#contacto" className="hover:text-blue-600 transition-colors">Contacto</a>
+          </div>
+        </div>
+      </nav>
 
-                <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-1.5 bg-blue-600 text-white text-sm font-bold uppercase rounded-full shadow-sm">
-                    Salud Mental
-                  </span>
-                </div>
-              </div>
-
-              <div className="lg:col-span-5">
-                <TrustZone />
-              </div>
+      {/* Hero Section */}
+      <header id="inicio" className="bg-white border-b border-slate-100">
+        <div className="section-container text-center md:text-left flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1 space-y-6">
+            <div className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-widest rounded">
+              Salud Mental
+            </div>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
+              Excelencia en el cuidado <br/><span className="text-blue-600">de la Salud Mental</span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
+              Práctica profesional sustentada en la ética sanitaria y la formación académica avanzada. 
+              Compromiso con la transparencia, la seguridad del paciente y la integridad institucional.
+            </p>
+            <div className="pt-4 flex flex-wrap gap-4 justify-center md:justify-start">
+              <a href="#contacto" className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+                Consultas Institucionales
+              </a>
+              <a href="#perfil" className="px-8 py-3 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition-all">
+                Conocer Perfil
+              </a>
             </div>
           </div>
-        </header>
+        </div>
+      </header>
 
-        {/* Presentación Profesional */}
-        <Section id="presentacion" title="Presentación Profesional">
-          <div className="space-y-6 text-slate-700 leading-relaxed text-lg">
-            <p>
-              Como profesional de la salud y las ciencias del comportamiento, mi labor se fundamenta en la rigurosidad clínica y el respeto por los marcos institucionales. Entiendo el ejercicio de la Musicoterapia y la Psicología como disciplinas en constante diálogo con las necesidades de las personas en el ámbito de la salud mental.
-            </p>
-            <p>
-              Mi enfoque es institucional, claro y humano, priorizando la seguridad y el respaldo legal en cada intervención. La práctica profesional se desarrolla bajo un compromiso ético ineludible, buscando siempre la excelencia en la atención sanitaria.
-            </p>
-            <p className="font-medium text-blue-900 italic">
-              Propietario de {PROFESSIONAL.brand}
-            </p>
-          </div>
-        </Section>
-
-        {/* Enfoque Terapéutico */}
-        <Section id="enfoque" title="Enfoque en Salud Mental" dark>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-slate-800 p-8 rounded-xl border border-slate-700">
-              <h3 className="text-xl font-bold mb-4 text-blue-400">Integración Clínica</h3>
-              <p className="text-slate-300 leading-relaxed">
-                Abordaje interdisciplinar que combina la Musicoterapia y la Psicología clínica. Buscamos promover procesos de salud integrales, respetando la singularidad de cada persona y fomentando su desarrollo emocional.
+      {/* Professional Profile Section */}
+      <section id="perfil" className="bg-slate-50">
+        <div className="section-container grid md:grid-cols-3 gap-12">
+          <div className="md:col-span-2 space-y-6">
+            <h2 className="text-3xl font-bold text-slate-900">Presentación Institucional</h2>
+            <div className="prose prose-slate prose-lg text-slate-600 space-y-4">
+              <p>
+                Como profesional especializado en salud mental, mi labor se centra en la integración de criterios clínicos 
+                y normativos para ofrecer un respaldo sólido a cada intervención. Mi enfoque es estrictamente profesional, 
+                evitando el sensacionalismo y priorizando la comunicación clara y humana.
+              </p>
+              <p>
+                La titularidad de la marca <strong>"La Piazza Terapias Integrativas"</strong> refleja un modelo de trabajo 
+                basado en la calidad, el respeto por las leyes de ejercicio profesional y la actualización constante 
+                en las ciencias del comportamiento.
               </p>
             </div>
-            <div className="bg-slate-800 p-8 rounded-xl border border-slate-700">
-              <h3 className="text-xl font-bold mb-4 text-blue-400">Modelo Benenzon</h3>
-              <p className="text-slate-300 leading-relaxed">
-                Utilización de técnicas especializadas en comunicación no verbal y dinámicas sonoro-musicales para el abordaje de diversas problemáticas de salud mental, basándose en la formación de Magíster en este modelo.
-              </p>
-            </div>
           </div>
-          <div className="mt-8 p-6 bg-slate-800/50 rounded-lg border border-slate-700 text-center">
-            <p className="text-slate-400 text-sm">
-              * El ejercicio profesional se ajusta estrictamente a las competencias otorgadas por las incumbencias de grado y posgrado en salud.
-            </p>
+          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+            <h3 className="font-bold text-slate-900 uppercase text-xs tracking-widest">Compromiso Ético</h3>
+            <ul className="space-y-4">
+              <li className="flex gap-3 text-sm text-slate-600">
+                <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 text-blue-600 font-bold">✓</div>
+                Resguardo del Secreto Profesional
+              </li>
+              <li className="flex gap-3 text-sm text-slate-600">
+                <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 text-blue-600 font-bold">✓</div>
+                Seguro de Mala Praxis Vigente
+              </li>
+              <li className="flex gap-3 text-sm text-slate-600">
+                <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 text-blue-600 font-bold">✓</div>
+                Actualización Basada en Evidencia
+              </li>
+            </ul>
           </div>
-        </Section>
+        </div>
+      </section>
 
-        {/* Marco Ético y Legal */}
-        <Section id="etica" title="Marco Ético y Legal" subtitle="Compromiso con la excelencia y la normativa vigente">
-          <div className="space-y-6 text-slate-700">
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-blue-100 flex items-center justify-center rounded-lg text-blue-600 font-bold">01</div>
-              <div>
-                <h4 className="font-bold text-lg mb-1">Normativa Sanitaria</h4>
-                <p>Cumplimiento estricto de las leyes de ejercicio profesional y los códigos de ética de los colegios profesionales correspondientes.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-blue-100 flex items-center justify-center rounded-lg text-blue-600 font-bold">02</div>
-              <div>
-                <h4 className="font-bold text-lg mb-1">Confidencialidad</h4>
-                <p>Resguardo absoluto de la información clínica bajo los estándares de la Ley de Protección de Datos Personales y Secreto Profesional.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-blue-100 flex items-center justify-center rounded-lg text-blue-600 font-bold">03</div>
-              <div>
-                <h4 className="font-bold text-lg mb-1">Práctica Profesional</h4>
-                <p>Este espacio tiene carácter informativo e institucional, orientado a la transparencia y la confianza en la atención de salud mental.</p>
-              </div>
-            </div>
-          </div>
-        </Section>
-
-        {/* Perfil Académico */}
-        <Section id="academico" title="Perfil Académico y Formación" className="bg-slate-50">
-          <div className="space-y-8">
+      {/* Academic / Training Section */}
+      <section id="formacion" className="bg-white">
+        <div className="section-container">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
             <div>
-              <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Grado y Posgrado</h4>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {PROFESSIONAL.postgraduate.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-slate-700">
-                    <svg className="w-5 h-5 text-blue-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <h2 className="text-3xl font-bold text-slate-900">Marco Académico</h2>
+              <p className="text-slate-500 mt-2">Formación universitaria y producción científica registrada.</p>
             </div>
-
-            <div className="border-t border-slate-200 pt-8">
-              <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Registro Académico</h4>
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <div>
-                  <p className="font-semibold text-slate-800">ORCID: <span className="text-blue-600 font-mono tracking-tighter">{PROFESSIONAL.orcid}</span></p>
-                  <p className="text-slate-500 text-sm mt-1">Identificador único para la producción científica y académica.</p>
-                </div>
-                <a 
-                  href={`https://orcid.org/${PROFESSIONAL.orcid}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all text-sm font-bold uppercase"
-                >
-                  Ver Perfil ORCID
-                </a>
-              </div>
+            <div className="flex items-center gap-3 bg-slate-50 px-4 py-2 rounded-lg border border-slate-200">
+              <span className="text-xs font-bold text-slate-400 uppercase tracking-tighter">ORCID</span>
+              <span className="font-mono text-sm text-blue-600">0009-0006-8012-9817</span>
             </div>
           </div>
-        </Section>
 
-        {/* Información de Contacto */}
-        <Section id="contacto" title="Canales de Comunicación">
-          <div className="max-w-2xl">
-            <p className="text-lg text-slate-700 mb-8">
-              Para consultas institucionales o solicitud de información sobre la práctica clínica en {PROFESSIONAL.brand}, utilice los canales oficiales.
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { title: "Grado y Formación Continua", desc: "Docente universitario y formador." },
+              { title: "Máster en Musicoterapia", desc: "Universidad de Nebrija." },
+              { title: "Posgrado en Psicología Forense", desc: "Universidad de Nebrija." },
+              { title: "Diploma en Criminología", desc: "Universidad Siglo 21." },
+            ].map((item, i) => (
+              <div key={i} className="p-6 border border-slate-100 rounded-xl hover:border-blue-200 transition-colors bg-slate-50/30">
+                <h4 className="font-bold text-slate-900">{item.title}</h4>
+                <p className="text-slate-500 text-sm mt-1">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 p-6 bg-blue-50 rounded-xl flex flex-col md:flex-row items-center gap-6">
+            <div className="flex-1 text-center md:text-left">
+              <h4 className="font-bold text-blue-900">Publicaciones Científicas</h4>
+              <p className="text-blue-700/70 text-sm">Registro oficial de investigaciones y artículos especializados en salud y comportamiento.</p>
+            </div>
+            <a href="https://orcid.org/0009-0006-8012-9817" target="_blank" rel="noreferrer" className="px-6 py-2 bg-white text-blue-600 border border-blue-200 rounded-lg font-bold text-sm hover:bg-blue-600 hover:text-white transition-all">
+              Consultar Registro
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contacto" className="bg-slate-900 text-white">
+        <div className="section-container">
+          <div className="max-w-3xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl font-bold">Canales de Comunicación</h2>
+            <p className="text-slate-400 text-lg leading-relaxed">
+              Este sitio es un portal de información profesional. Para consultas sobre atención, 
+              supervisiones o convenios institucionales, por favor utilice los medios oficiales.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 rounded-lg bg-slate-100 text-center">
-                <p className="text-sm text-slate-500 font-bold uppercase mb-2">Consultas Institucionales</p>
-                <p className="text-slate-800 font-medium">info@lapiazzaterapias.com</p>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="p-8 bg-slate-800 rounded-2xl border border-slate-700">
+                <div className="text-blue-400 font-bold text-xs uppercase tracking-widest mb-4">Correo Institucional</div>
+                <div className="text-xl font-medium">info@lapiazzaterapias.com</div>
               </div>
-              <div className="p-6 rounded-lg bg-slate-100 text-center">
-                <p className="text-sm text-slate-500 font-bold uppercase mb-2">Canal Profesional</p>
-                <p className="text-slate-800 font-medium underline cursor-pointer">Consulta Directa</p>
+              <div className="p-8 bg-slate-800 rounded-2xl border border-slate-700">
+                <div className="text-blue-400 font-bold text-xs uppercase tracking-widest mb-4">Marca Registrada</div>
+                <div className="text-xl font-medium italic">La Piazza Terapias Integrativas</div>
               </div>
             </div>
-            <div className="mt-12 flex justify-center">
-              <div className="p-4 border-2 border-slate-200 rounded-2xl flex items-center gap-4 bg-white shadow-sm">
-                <div className="w-24 h-24 bg-slate-200 rounded flex items-center justify-center text-slate-400">
-                  <span className="text-xs font-bold text-center">CÓDIGO QR<br/>DE CONTACTO</span>
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-500 uppercase">Lectura Rápida</p>
-                  <p className="text-sm text-slate-800">Escanear para guardar contacto profesional</p>
+
+            <div className="pt-8 border-t border-slate-800 flex flex-col items-center">
+              <div className="w-32 h-32 bg-white p-2 rounded-xl mb-4">
+                {/* Visual placeholder for QR */}
+                <div className="w-full h-full bg-slate-100 rounded border-2 border-dashed border-slate-300 flex items-center justify-center text-slate-400 text-[10px] text-center font-bold uppercase">
+                  Código QR <br/> Profesional
                 </div>
               </div>
+              <p className="text-slate-500 text-sm uppercase font-bold tracking-widest">Escanee para guardar contacto</p>
             </div>
           </div>
-        </Section>
-      </main>
+        </div>
+      </section>
 
-      {/* Footer / Marco Ético-Legal */}
-      <footer className="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+      {/* Footer / Legal Notice */}
+      <footer className="bg-black py-12 px-6">
         <div className="max-w-5xl mx-auto space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-white font-bold mb-4">Disclaimer Sanitario</h4>
-              <p className="text-sm leading-relaxed">
-                Este sitio web tiene fines estrictamente informativos y educativos en salud mental. No constituye diagnóstico ni tratamiento, ni reemplaza la consulta profesional presencial. El uso de este sitio no establece una relación paciente-profesional hasta que se concrete una evaluación formal. No se realizan promesas de cura ni resultados garantizados.
+          <div className="grid md:grid-cols-2 gap-8 text-sm text-slate-500">
+            <div className="space-y-4">
+              <h5 className="text-white font-bold uppercase tracking-widest text-xs">Aviso Legal Sanitario</h5>
+              <p className="leading-relaxed">
+                La información contenida en este sitio tiene carácter institucional y orientativo. No constituye diagnóstico, 
+                indicación terapéutica ni reemplaza la consulta profesional presencial. El ejercicio profesional se encuentra 
+                debidamente habilitado por las autoridades sanitarias correspondientes.
               </p>
             </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">Marco Legal Institucional</h4>
-              <p className="text-sm leading-relaxed">
-                La práctica profesional se rige por las normativas de la República Argentina. Los datos proporcionados en este sitio cumplen con los requisitos de transparencia para profesionales de la salud. Matrículas y seguro de mala praxis verificables ante los organismos competentes.
+            <div className="space-y-4">
+              <h5 className="text-white font-bold uppercase tracking-widest text-xs">Jurisdicción y Ética</h5>
+              <p className="leading-relaxed">
+                Sitio diseñado bajo criterios de ética sanitaria y protección de datos. Los contenidos cumplen con la 
+                normativa de transparencia y publicidad para profesionales de la salud. 
               </p>
             </div>
           </div>
-          
-          <div className="pt-8 border-t border-slate-800 text-center space-y-4">
-            <p className="text-xs">
-              © {new Date().getFullYear()} Álvaro Altieri Aufranc - Lic. en Musicoterapia y Psicología. Especializado en Salud Mental.
-            </p>
-            <div className="flex justify-center gap-6 text-xs uppercase font-bold tracking-widest">
-              <span>Ética</span>
-              <span>•</span>
+          <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-slate-600 font-bold uppercase tracking-widest">
+            <span>© {new Date().getFullYear()} Álvaro Altieri Aufranc</span>
+            <div className="flex gap-6">
+              <span>Transparencia</span>
               <span>Responsabilidad</span>
-              <span>•</span>
-              <span>Ciencia</span>
+              <span>Ética</span>
             </div>
           </div>
         </div>
