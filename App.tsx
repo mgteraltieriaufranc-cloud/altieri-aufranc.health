@@ -1,6 +1,10 @@
 import React from 'react';
+import { PROFESSIONAL } from './constants';
 
 const App: React.FC = () => {
+  const qrData = `https://orcid.org/${PROFESSIONAL.orcid}`;
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Zona de Confianza / Legal Banner - Matrículas Arriba */}
@@ -18,7 +22,7 @@ const App: React.FC = () => {
       <nav className="glass-nav">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="font-bold text-slate-900 tracking-tight text-lg">
-            Álvaro Altieri Aufranc
+            {PROFESSIONAL.name}
           </div>
           <div className="hidden md:flex gap-8 text-sm font-medium text-slate-600">
             <a href="#inicio" className="hover:text-blue-600 transition-colors">Inicio</a>
@@ -34,7 +38,7 @@ const App: React.FC = () => {
         <div className="section-container text-center md:text-left flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 space-y-4">
             <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
-              Álvaro Altieri Aufranc
+              {PROFESSIONAL.name}
             </h1>
             {/* Copete / Subtítulo solicitado: Salud Mental */}
             <p className="text-2xl md:text-3xl text-blue-600 font-semibold tracking-tight italic">
@@ -117,10 +121,10 @@ const App: React.FC = () => {
             <div className="flex flex-col items-center md:items-end gap-3">
               <div className="bg-slate-800 px-6 py-3 rounded-lg border border-slate-700 flex items-center gap-4">
                 <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">ORCID</span>
-                <span className="font-mono text-lg font-medium text-white">0009-0006-8012-9817</span>
+                <span className="font-mono text-lg font-medium text-white">{PROFESSIONAL.orcid}</span>
               </div>
               <a 
-                href="https://orcid.org/0009-0006-8012-9817" 
+                href={qrData}
                 target="_blank" 
                 rel="noreferrer" 
                 className="text-blue-400 hover:text-blue-300 text-xs font-bold uppercase tracking-widest underline underline-offset-4"
@@ -143,8 +147,10 @@ const App: React.FC = () => {
             
             <div className="grid md:grid-cols-2 gap-6">
               <div className="p-8 bg-white rounded-2xl border border-slate-200 shadow-sm">
-                <div className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-4">Correo Institucional</div>
-                <div className="text-xl font-medium text-slate-900">info@lapiazzaterapias.com</div>
+                <div className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-4">Correo Profesional</div>
+                <div className="text-xl font-medium text-slate-900 break-all underline decoration-blue-200">
+                  <a href="mailto:mgteraltieriaufranc@gmail.com">mgteraltieriaufranc@gmail.com</a>
+                </div>
               </div>
               <div className="p-8 bg-white rounded-2xl border border-slate-200 shadow-sm">
                 <div className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-4">Marca Registrada</div>
@@ -153,12 +159,34 @@ const App: React.FC = () => {
             </div>
 
             <div className="pt-8 flex flex-col items-center">
-              <div className="w-32 h-32 bg-white p-2 rounded-xl mb-4 border border-slate-200 shadow-inner">
-                <div className="w-full h-full bg-slate-50 rounded border-2 border-dashed border-slate-200 flex items-center justify-center text-slate-400 text-[10px] text-center font-bold uppercase">
-                  Código QR <br/> Profesional
+              <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center gap-4">
+                <div className="flex flex-col md:flex-row items-center gap-8">
+                  <div className="flex flex-col items-center">
+                    <div className="w-40 h-40 bg-white rounded border border-slate-100 p-1 shadow-inner overflow-hidden">
+                       {/* Generación de código QR real escaneable */}
+                       <img 
+                        src={qrUrl} 
+                        alt="Código QR de Validación Profesional" 
+                        className="w-full h-full object-contain"
+                       />
+                    </div>
+                    <p className="mt-3 text-sm font-bold text-slate-900 italic">Ley: 27158.</p>
+                  </div>
+                  <div className="text-center md:text-left space-y-3 max-w-xs">
+                    <div className="md:border-l-2 md:border-blue-600 md:pl-4">
+                      <p className="text-blue-600 font-bold text-xs uppercase tracking-widest">Validación Oficial</p>
+                      <p className="text-slate-900 text-lg font-bold leading-tight">
+                        Resolución Ministerio de Salud de la Nación
+                      </p>
+                    </div>
+                    <p className="text-[11px] text-slate-500 leading-tight uppercase font-medium tracking-wide">
+                      Secretaría de Políticas Universitarias<br/>
+                      DNG Y FU
+                    </p>
+                    <p className="text-[10px] text-slate-400 font-bold uppercase">Escanee para verificar credenciales</p>
+                  </div>
                 </div>
               </div>
-              <p className="text-slate-500 text-xs uppercase font-bold tracking-widest">Escanee para guardar contacto</p>
             </div>
           </div>
         </div>
@@ -175,6 +203,11 @@ const App: React.FC = () => {
                 indicación terapéutica ni reemplaza la consulta profesional presencial. El ejercicio profesional se encuentra 
                 debidamente habilitado por las autoridades sanitarias correspondientes.
               </p>
+              <div className="pt-4 border-t border-slate-800">
+                <p className="text-[10px] leading-relaxed italic text-slate-500">
+                  Los contenidos académicos se rigen de acuerdo a normativas internas conforme con IGB Número: 1697374 Res.. R.M.0744/97 · Ministerio de justicia de la nación.
+                </p>
+              </div>
             </div>
             <div className="space-y-4 text-right">
               <h5 className="text-white font-bold uppercase tracking-widest text-xs">Información Regulatoria</h5>
@@ -182,11 +215,13 @@ const App: React.FC = () => {
                 <p>Matrícula Nacional N° 59502/15</p>
                 <p>Matrículas Privadas N° 217 y 113</p>
                 <p>Póliza La Segunda Seguros N° 40.264.697</p>
+                <p className="text-blue-400 font-medium">Resolución Ministerio de Salud de la Nación</p>
+                <p className="text-slate-500">DNI: 32.137.038</p>
               </div>
             </div>
           </div>
           <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-slate-600 font-bold uppercase tracking-widest">
-            <span>© {new Date().getFullYear()} Álvaro Altieri Aufranc</span>
+            <span>© {new Date().getFullYear()} {PROFESSIONAL.name}</span>
             <div className="flex gap-6">
               <span>Transparencia</span>
               <span>Responsabilidad</span>

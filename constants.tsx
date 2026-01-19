@@ -2,7 +2,7 @@
 import { ProfessionalData, LegalData } from './types';
 
 export const PROFESSIONAL: ProfessionalData = {
-  name: "Álvaro Altieri Aufranc",
+  name: "Álvaro Jorge Altieri Aufranc",
   degrees: ["Licenciado en Musicoterapia", "Psicología"],
   postgraduate: [
     "Magíster en el Modelo Benenzon",
